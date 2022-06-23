@@ -1,0 +1,33 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+ .wp-block-opendev-icon-footnote {
+	//background-color: #21759b;
+	//color: #fff;
+	//padding: 2px;
+}
+
+.wp-material-footnote {
+	display: grid;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	grid-template-columns: 120px auto;
+	grid-template-rows: auto;
+}
+  
+.wp-material-footnote-icon {
+	grid-column: 1;
+	grid-row: auto;
+	width: 120px;
+}
+  
+.wp-material-footnote-text {
+	grid-column: 2;
+	grid-row: auto;
+	display: flex;
+	align-items: center;
+  }
