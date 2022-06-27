@@ -10,7 +10,33 @@ import {
     BlockControls,
 } from "@wordpress/block-editor";
 import { color } from '@wordpress/icons';
-import { mdiAbacus, mdiAlarm, mdiCircle, mdiMaterialDesign } from '@mdi/js';
+import { 
+    mdiAlert, 
+    mdiAlertOctagram,
+    mdiAlien, 
+    mdiAsterisk, 
+    mdiAsteriskCircleOutline, 
+    mdiBalloon,
+    mdiBell, 
+    mdiBicycle,
+    mdiBomb, 
+    mdiBullhorn,
+    mdiCakeVariant,
+    mdiCampfire,
+    mdiCardsHeart,
+    mdiCircle, 
+    mdiCog,
+    mdiFlower,
+    mdiGhost,
+    mdiKey,
+    mdiLightbulb,
+    mdiMaterialDesign, 
+    mdiRocketLaunch,
+    mdiRodent,
+    mdiSkull,
+    mdiSpaceInvaders,
+} from '@mdi/js'
+
 import { MaterialIcon, buildBase64MaterialIcon } from './icons';
 
 
@@ -32,7 +58,34 @@ const iconColors = [
     '#000'
 ];
 
-const createColorControls = function(props) {
+const icons = {
+    mdiAlert,
+    mdiAlertOctagram,
+    mdiAlien,
+    mdiAsterisk,
+    mdiAsteriskCircleOutline,
+    mdiBalloon,
+    mdiBell,
+    mdiBicycle,
+    mdiBomb,
+    mdiBullhorn,
+    mdiCakeVariant,
+    mdiCampfire,
+    mdiCardsHeart,
+    mdiCog,
+    mdiFlower,
+    mdiGhost,
+    mdiKey,
+    mdiLightbulb,
+    mdiRocketLaunch,
+    mdiRodent,
+    mdiSkull,
+    mdiSpaceInvaders,
+}
+
+
+
+const createColorControls = function() {
     let colors = [];
     for (let c in iconColors) {
         colors.push(
@@ -46,12 +99,28 @@ const createColorControls = function(props) {
     return colors;
 }
 
+const createIconControls = function(props) {
+    let iconControls = [];
+    for (let ni in icons) {
+        iconControls.push(
+            {
+                icon: MaterialIcon(icons[ni], iconColor),
+                onClick: () => props.setAttributes({content: props.attributes.content + "<Image src='data:image/svg+xml;base64," + buildBase64MaterialIcon(icons[ni], iconColor) + "'></Image>"})
+            }
+        )
+    }
+    return iconControls;
+}
+
 const colorControls = createColorControls();
 
 
 export const withMaterialIconControls = createHigherOrderComponent( ( BlockEdit ) => {
     return ( props ) => {
 		console.log(props);
+
+        let iconControls = createIconControls(props);
+
 		if ((props.name == 'core/paragraph') || (props.name == 'core/html')) {
 			return (
 				<Fragment>
@@ -61,13 +130,12 @@ export const withMaterialIconControls = createHigherOrderComponent( ( BlockEdit 
                             <DropdownMenu 
 								icon={ color } label={__('Pick icon color')} controls={ colorControls } 
 							/>;
-							<ToolbarButton
-									icon={ MaterialIcon(mdiMaterialDesign, iconColor) }
-									label= {__("Add icon")}
-									onClick={ 
-										() => props.setAttributes({content: props.attributes.content + "<Image class='color-red;' src='data:image/svg+xml;base64," + buildBase64MaterialIcon(mdiAlarm, iconColor, 20) + "'></Image>"})
-									}
-							/>
+                            <DropdownMenu
+                                icon = { MaterialIcon(mdiMaterialDesign, iconColor) }
+                                label = {__("Add icon")}
+                                controls = {iconControls}
+                            />;
+							
 						</ToolbarGroup>
 					</BlockControls>
 				</Fragment>
