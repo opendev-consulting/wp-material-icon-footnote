@@ -70,3 +70,6 @@ wp-env start
 `npm run start` for creating a “development” build
 
 
+### More docs
+
+https://developer.wordpress.org/block-editor/reference-guides/filters/block-filters/
