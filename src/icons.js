@@ -1,6 +1,4 @@
-import { mdiAbacus } from "@mdi/js"
 import { SVG, Path } from '@wordpress/primitives';
-
 
 export const MaterialIcon = function(icon, color, size) {
     return (

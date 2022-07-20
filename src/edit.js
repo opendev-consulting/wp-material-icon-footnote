@@ -8,17 +8,12 @@
  import { InspectorControls } from "@wordpress/block-editor";
  import { Fragment } from "@wordpress/element";
  import { addFilter } from "@wordpress/hooks";
- import { SVG, Path } from '@wordpress/primitives';
  import {
-	 TextControl,
 	 PanelBody,
-	 Icon,
+	 Button,
 	 ColorPicker,
-	 DropdownMenu,
-	 ToolbarButton,
-	 ToolbarGroup
+	 ColorPalette,
  } from '@wordpress/components';
- 
  import {
 	 RichText,
 	 BlockControls,
@@ -31,9 +26,8 @@
   *
   * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
   */
- import { mdiAbacus, mdiAlarm, mdiCircle } from '@mdi/js';
+ import { mdiAbacus, mdiGhost, mdiCircle } from '@mdi/js';
  import { useBlockProps } from '@wordpress/block-editor';
- import { edit, color, arrowUp, arrowDown } from '@wordpress/icons';
  /**
   * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
   * Those files can contain any CSS code that gets applied to the editor.
@@ -43,15 +37,27 @@
 import './editor.scss';
 
 import { MaterialIcon, buildBase64MaterialIcon } from './icons';
-import { withMaterialIconControls } from './gutemberg';
- 
+import { withMaterialIconControls, iconColors } from './gutemberg';
 
-wp.hooks.addFilter(
+/*
+addFilter(
     'editor.BlockEdit',
     'my-plugin/with-inspector-controls',
     withMaterialIconControls
 );
+*/
 
+const createColorPalette = function() {
+    let colors = [];
+    for (let c in iconColors) {
+        colors.push(
+            {
+                color: iconColors[c],
+            },
+        );
+    }
+    return colors;
+}
 
  /**
   * The edit function describes the structure of your block in the context of the
@@ -62,73 +68,50 @@ wp.hooks.addFilter(
   * @return {WPElement} Element to render.
   */
  export default function Edit({ attributes, setAttributes }) {
- 
-	 const onChangeAlign = (newAlign) => {
+	console.log('EDIT');
+	console.log(attributes);
+
+	const onChangeAlign = (newAlign) => {
 		 setAttributes({
 			 align: newAlign === undefined ? 'none' : newAlign,
 		 })
 	 }
-	 
-	  /*
-	 const menu_icon_controls =
-		 [
-			{
-				 title: iconAbacus.name,
-				 icon: MaterialIcon(iconAbacus),
-				 onClick: () => setAttributes({path: iconAbacus.path}),
-			 },
-			 {
-				 title: 'Right',
-				 icon: arrowRight,
-				 onClick: () => console.log('right'),
-			 },
-			 {
-				 title: 'Down',
-				 icon: arrowDown,
-				 onClick: () => console.log('down'),
-			 },
-			 {
-				 title: 'Left',
-				 icon: arrowLeft,
-				 onClick: () => console.log('left'),
-			 },
-		 ]*/
  
 	 return (
 		 <div {...useBlockProps()}>
 			 <div class="wp-material-footnote">
 				 <Fragment>
 					 <InspectorControls>
-						 <PanelBody title="Icon color" initialOpen={true}>
+						 <PanelBody title="Icon" initialOpen={true}>
+						 	<Button icon={ MaterialIcon(mdiGhost, attributes.color)}  iconSize={ 32 } onClick={(val) => setAttributes({ icon: mdiGhost })} />
+						 </PanelBody>
+						 <PanelBody title="Color" initialOpen={true}>
 							 <ColorPicker
 								 color={attributes.color}
 								 onChange={(val) => setAttributes({ color: val })}
 								 enableAlpha
 								 defaultValue="#000"
 							 />
+							 <ColorPalette
+								colors={ createColorPalette() }
+								onChange={(val) => setAttributes({ color: val })}
+								value= {attributes.color}
+								defaultValue="#000"
+							/>
 						 </PanelBody>
 					 </InspectorControls>
 					 
 					 <div class="wp-material-footnote-icon">
-						 {MaterialIcon(mdiAbacus, 110, attributes.color)}
+						 {MaterialIcon(attributes.icon, attributes.color)}
 					 </div>
 					 <div class="wp-material-footnote-text">
-						 <>
-							 <BlockControls>
-								 <AlignmentControl
-									 value={attributes.align}
-									 onChange={onChangeAlign}
-								 />
-							 </BlockControls>
-							 <RichText
-								 tagName="small"
-								 className="callout-title"
-								 placeholder={__("Write a foot note")}
-								 value={attributes.note}
-								 onChange={(val) => setAttributes({ note: val })}
-								 style={{ textAlign: attributes.align }}
-							 />
-						 </>
+						<RichText
+							className="callout-title"
+							placeholder={__("Write a foot note")}
+							value={attributes.note}
+							onChange={(val) => setAttributes({ note: val })}
+							style={{ textAlign: attributes.align }}
+						/>
 					 </div>
 				 </Fragment>
 			 </div>
@@ -136,4 +119,3 @@ wp.hooks.addFilter(
 		 </div>
 	 );
  }
- 

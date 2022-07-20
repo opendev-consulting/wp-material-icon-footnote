@@ -43,7 +43,7 @@ import { MaterialIcon, buildBase64MaterialIcon } from './icons';
 const { createHigherOrderComponent } = wp.compose;
 
 let iconColor = '#000';
-const iconColors = [
+export const iconColors = [
     '#d61d23',
     '#f7941c',
     '#ffcf27',
@@ -121,7 +121,7 @@ export const withMaterialIconControls = createHigherOrderComponent( ( BlockEdit 
 
         let iconControls = createIconControls(props);
 
-		if ((props.name == 'core/paragraph') || (props.name == 'core/html')) {
+		//if ((props.name == 'core/paragraph') || (props.name == 'core/html')) {
 			return (
 				<Fragment>
 					<BlockEdit { ...props } />
@@ -140,7 +140,9 @@ export const withMaterialIconControls = createHigherOrderComponent( ( BlockEdit 
 					</BlockControls>
 				</Fragment>
 			);
-		}
+		//} else {
+        //    return <Fragment></Fragment>
+        //}
     };
 }, 'withMaterialIconControls' );
  
