@@ -27,7 +27,7 @@
 	console.log(attributes);
 	return (
 		 <div { ...useBlockProps.save() }>
-			 <div  class="wp-material-footnote">
+			 <div class="wp-material-footnote">
 				 <div class="wp-material-footnote-icon" style="color:gray;">
 					 <svg width="110" height="110" viewBox="0 0 24 24">
 						 <path fill={attributes.color} d={attributes.icon} />

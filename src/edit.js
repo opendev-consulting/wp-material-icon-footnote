@@ -39,13 +39,12 @@ import './editor.scss';
 import { MaterialIcon, buildBase64MaterialIcon } from './icons';
 import { withMaterialIconControls, iconColors } from './gutemberg';
 
-/*
+
 addFilter(
     'editor.BlockEdit',
     'my-plugin/with-inspector-controls',
     withMaterialIconControls
 );
-*/
 
 const createColorPalette = function() {
     let colors = [];
@@ -70,16 +69,10 @@ const createColorPalette = function() {
  export default function Edit({ attributes, setAttributes }) {
 	console.log('EDIT');
 	console.log(attributes);
-
-	const onChangeAlign = (newAlign) => {
-		 setAttributes({
-			 align: newAlign === undefined ? 'none' : newAlign,
-		 })
-	 }
  
 	 return (
 		 <div {...useBlockProps()}>
-			 <div class="wp-material-footnote">
+			 <div className="wp-material-footnote">
 				 <Fragment>
 					 <InspectorControls>
 						 <PanelBody title="Icon" initialOpen={true}>
@@ -101,16 +94,15 @@ const createColorPalette = function() {
 						 </PanelBody>
 					 </InspectorControls>
 					 
-					 <div class="wp-material-footnote-icon">
+					 <div className="wp-material-footnote-icon">
 						 {MaterialIcon(attributes.icon, attributes.color)}
 					 </div>
-					 <div class="wp-material-footnote-text">
+					 <div className="wp-material-footnote-text">
 						<RichText
 							className="callout-title"
 							placeholder={__("Write a foot note")}
 							value={attributes.note}
 							onChange={(val) => setAttributes({ note: val })}
-							style={{ textAlign: attributes.align }}
 						/>
 					 </div>
 				 </Fragment>
