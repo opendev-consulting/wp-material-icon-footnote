@@ -11,33 +11,11 @@ import {
 } from "@wordpress/block-editor";
 import { color } from '@wordpress/icons';
 import { 
-    mdiAlert, 
-    mdiAlertOctagram,
-    mdiAlien, 
-    mdiAsterisk, 
-    mdiAsteriskCircleOutline, 
-    mdiBalloon,
-    mdiBell, 
-    mdiBicycle,
-    mdiBomb, 
-    mdiBullhorn,
-    mdiCakeVariant,
-    mdiCampfire,
-    mdiCardsHeart,
-    mdiCircle, 
-    mdiCog,
-    mdiFlower,
-    mdiGhost,
-    mdiKey,
-    mdiLightbulb,
-    mdiMaterialDesign, 
-    mdiRocketLaunch,
-    mdiRodent,
-    mdiSkull,
-    mdiSpaceInvaders,
+    mdiCircle,
+    mdiMaterialDesign
 } from '@mdi/js'
 
-import { MaterialIcon, buildBase64MaterialIcon } from './icons';
+import { MaterialIcon, buildBase64MaterialIcon, icons } from './icons';
 
 
 const { createHigherOrderComponent } = wp.compose;
@@ -57,33 +35,6 @@ export const iconColors = [
     '#666', //Hell yeah!
     '#000'
 ];
-
-const icons = {
-    mdiAlert,
-    mdiAlertOctagram,
-    mdiAlien,
-    mdiAsterisk,
-    mdiAsteriskCircleOutline,
-    mdiBalloon,
-    mdiBell,
-    mdiBicycle,
-    mdiBomb,
-    mdiBullhorn,
-    mdiCakeVariant,
-    mdiCampfire,
-    mdiCardsHeart,
-    mdiCog,
-    mdiFlower,
-    mdiGhost,
-    mdiKey,
-    mdiLightbulb,
-    mdiRocketLaunch,
-    mdiRodent,
-    mdiSkull,
-    mdiSpaceInvaders,
-}
-
-
 
 const createColorControls = function() {
     let colors = [];

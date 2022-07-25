@@ -36,7 +36,7 @@
   */
 import './editor.scss';
 
-import { MaterialIcon, buildBase64MaterialIcon } from './icons';
+import { MaterialIcon, icons } from './icons';
 import { withMaterialIconControls, iconColors } from './gutemberg';
 
 
@@ -58,6 +58,16 @@ const createColorPalette = function() {
     return colors;
 }
 
+const createIconButtons = function({ attributes, setAttributes }) {
+	let buttons = [];
+	for (let ni in icons) {
+		buttons.push(
+			<Button icon={ MaterialIcon(icons[ni], attributes.color)}  iconSize={ 32 } onClick={(val) => setAttributes({ icon: icons[ni] })} />
+		);
+	}
+	return buttons;
+}
+
  /**
   * The edit function describes the structure of your block in the context of the
   * editor. This represents what the editor will render when the block is used.
@@ -76,7 +86,7 @@ const createColorPalette = function() {
 				 <Fragment>
 					 <InspectorControls>
 						 <PanelBody title="Icon" initialOpen={true}>
-						 	<Button icon={ MaterialIcon(mdiGhost, attributes.color)}  iconSize={ 32 } onClick={(val) => setAttributes({ icon: mdiGhost })} />
+						 	{ createIconButtons({attributes, setAttributes}) }
 						 </PanelBody>
 						 <PanelBody title="Color" initialOpen={true}>
 							 <ColorPicker
