@@ -15,7 +15,9 @@ import {
     mdiMaterialDesign
 } from '@mdi/js'
 
-import { MaterialIcon, buildBase64MaterialIcon, icons } from './icons';
+import FootNoteLogo from './assets/logo-footnote-icon.svg';
+
+import { MaterialIcon, buildBase64MaterialIcon, icons, logo } from './icons';
 
 
 const { createHigherOrderComponent } = wp.compose;
@@ -82,7 +84,7 @@ export const withMaterialIconControls = createHigherOrderComponent( ( BlockEdit 
 								icon={ color } label={__('Pick icon color')} controls={ colorControls } 
 							/>;
                             <DropdownMenu
-                                icon = { MaterialIcon(mdiMaterialDesign, iconColor) }
+                                icon = { MaterialIcon(logo, iconColor) }
                                 label = {__("Add icon")}
                                 controls = {iconControls}
                             />;

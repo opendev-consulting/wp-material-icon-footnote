@@ -1,25 +1,27 @@
 === Icon Footnote ===
-Contributors:      The WordPress Contributors
+Contributors:      Krzysztof Stopa OpenDev.Consulting
 Tags:              block
 Tested up to:      6.0
-Stable tag:        0.1.0
+Stable tag:        0.1.1
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
-Example static block scaffolded with Create Block tool.
+Gutemberg block that adds beautiful footnotes using material icons..
 
 == Description ==
 
-This is the long description. No limit, and you can use Markdown (as well as in the following sections).
+Complete your texts with beautiful footnotes based on [Material Design icons](https://materialdesignicons.com).
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+Developed by [OpenDev.Consulting](https://opendev.consulting).
+
+Features:
+
+ * More than 20 icons available.
+ * Customizable color.
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
-
-e.g.
+Install as any other plugin. Just:
 
 1. Upload the plugin files to the `/wp-content/plugins/icon-footnote` directory, or install the plugin through the WordPress plugins screen directly.
 1. Activate the plugin through the 'Plugins' screen in WordPress
@@ -27,13 +29,15 @@ e.g.
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= I need more features!!! =
 
-An answer to that question.
+This is the first release. If you whant to add something your contact me or clone 
+our [official repo](https://github.com/opendev-consulting/wp-material-icon-footnote) 
+and make a pull request with your changes.
 
-= What about foo bar? =
+= I need more icons!!! =
 
-Answer to foo bar dilemma.
+I'm working on it. The final goal is to enable to work with any material icon.
 
 == Screenshots ==
 
@@ -45,11 +49,13 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
-= 0.1.0 =
-* Release
+= 0.1.1 =
 
-== Arbitrary section ==
+* First public release.
+* Add icons in any location of a rich text.
+* Customizable color.
+* Customizable icons (20+).
 
-You may provide arbitrary sections, in the same format as the ones above. This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation." Arbitrary sections will be shown below the built-in sections outlined above.
+== About OpenDev.Consulting ==
+
+Please visit [OpenDev.Consulting](https://opendev.consulting) and share the plugin to support us.

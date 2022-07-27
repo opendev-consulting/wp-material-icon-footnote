@@ -1,9 +1,9 @@
 {
 	"name": "icon-footnote",
 	"version": "0.1.1",
-	"description": "Example static block scaffolded with Create Block tool.",
+	"description": "Wordpress block to add beautiful footnotes using material icons.",
 	"author": "OpenDev.Consulting",
-	"license": "LGPL-2.1-or-later",
+	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
 	"scripts": {
 		"build": "wp-scripts build",

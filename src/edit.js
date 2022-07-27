@@ -14,11 +14,7 @@
 	 ColorPicker,
 	 ColorPalette,
  } from '@wordpress/components';
- import {
-	 RichText,
-	 BlockControls,
-	 AlignmentControl
- } from "@wordpress/block-editor";
+ import { RichText } from "@wordpress/block-editor";
 
  /**
   * React hook that is used to mark the block wrapper element.
@@ -26,7 +22,6 @@
   *
   * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
   */
- import { mdiAbacus, mdiGhost, mdiCircle } from '@mdi/js';
  import { useBlockProps } from '@wordpress/block-editor';
  /**
   * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -85,10 +80,7 @@ const createIconButtons = function({ attributes, setAttributes }) {
 			 <div className="wp-material-footnote">
 				 <Fragment>
 					 <InspectorControls>
-						 <PanelBody title="Icon" initialOpen={true}>
-						 	{ createIconButtons({attributes, setAttributes}) }
-						 </PanelBody>
-						 <PanelBody title="Color" initialOpen={true}>
+					 	<PanelBody title="Color" initialOpen={true}>
 							 <ColorPicker
 								 color={attributes.color}
 								 onChange={(val) => setAttributes({ color: val })}
@@ -101,7 +93,10 @@ const createIconButtons = function({ attributes, setAttributes }) {
 								value= {attributes.color}
 								defaultValue="#000"
 							/>
-						 </PanelBody>
+						</PanelBody>
+						<PanelBody title="Icon" initialOpen={true}>
+						 	{ createIconButtons({attributes, setAttributes}) }
+						</PanelBody> 
 					 </InspectorControls>
 					 
 					 <div className="wp-material-footnote-icon">

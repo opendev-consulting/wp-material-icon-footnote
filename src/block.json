@@ -5,8 +5,9 @@
 	"version": "0.1.1",
 	"title": "Icon Footnote",
 	"category": "widgets",
+	"keywords": ["footnote", "icons", "gotemberg", "block"],
 	"icon": "align-full-width",
-	"description": "Post footnote with a very big Material icon",
+	"description": "Block that adds beautiful footnotes using material icons.",
 	"supports": {
 		"html": true
 	},
