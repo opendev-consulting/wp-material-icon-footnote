@@ -11,11 +11,8 @@ import {
 } from "@wordpress/block-editor";
 import { color } from '@wordpress/icons';
 import { 
-    mdiCircle,
-    mdiMaterialDesign
+    mdiCircle
 } from '@mdi/js'
-
-import FootNoteLogo from './assets/logo-footnote-icon.svg';
 
 import { MaterialIcon, buildBase64MaterialIcon, icons, logo } from './icons';
 
@@ -23,6 +20,8 @@ import { MaterialIcon, buildBase64MaterialIcon, icons, logo } from './icons';
 const { createHigherOrderComponent } = wp.compose;
 
 let iconColor = '#000';
+
+/** Available default colors */
 export const iconColors = [
     '#d61d23',
     '#f7941c',
@@ -38,6 +37,9 @@ export const iconColors = [
     '#000'
 ];
 
+/** 
+ * Generate dropdown menu controls to enable color picking when editing 
+ */
 const createColorControls = function() {
     let colors = [];
     for (let c in iconColors) {
@@ -52,6 +54,9 @@ const createColorControls = function() {
     return colors;
 }
 
+/** 
+ * Generate dropdown menu controls to enable icon selction on block editor.
+ */
 const createIconControls = function(props) {
     let iconControls = [];
     for (let ni in icons) {
@@ -67,14 +72,15 @@ const createIconControls = function(props) {
 
 const colorControls = createColorControls();
 
-
+/**
+ * Add options color and icon selection controls to the paragraph and html BlockEditors
+ *
+ * @return {Fragment} Fragment with 
+ */
 export const withMaterialIconControls = createHigherOrderComponent( ( BlockEdit ) => {
     return ( props ) => {
-		console.log(props);
-
-        let iconControls = createIconControls(props);
-
-		//if ((props.name == 'core/paragraph') || (props.name == 'core/html')) {
+		if ((props.name == 'core/paragraph') || (props.name == 'core/html')) {
+            let iconControls = createIconControls(props);
 			return (
 				<Fragment>
 					<BlockEdit { ...props } />
@@ -93,9 +99,13 @@ export const withMaterialIconControls = createHigherOrderComponent( ( BlockEdit 
 					</BlockControls>
 				</Fragment>
 			);
-		//} else {
-        //    return <Fragment></Fragment>
-        //}
+		} else {
+            return (
+                <Fragment>
+					<BlockEdit { ...props } />
+                </Fragment>
+            );
+        }
     };
 }, 'withMaterialIconControls' );
  

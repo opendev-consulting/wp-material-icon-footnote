@@ -2,7 +2,7 @@
 Contributors:      Krzysztof Stopa OpenDev.Consulting
 Tags:              block
 Tested up to:      6.0
-Stable tag:        0.1.1
+Stable tag:        0.1.2
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,7 +24,7 @@ Features:
 Install as any other plugin. Just:
 
 1. Upload the plugin files to the `/wp-content/plugins/icon-footnote` directory, or install the plugin through the WordPress plugins screen directly.
-1. Activate the plugin through the 'Plugins' screen in WordPress
+2. Activate the plugin through the 'Plugins' screen in WordPress
 
 
 == Frequently Asked Questions ==
@@ -49,7 +49,7 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 
 == Changelog ==
 
-= 0.1.1 =
+= 0.1.2 =
 
 * First public release.
 * Add icons in any location of a rich text.

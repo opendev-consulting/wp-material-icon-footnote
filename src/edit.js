@@ -34,13 +34,16 @@ import './editor.scss';
 import { MaterialIcon, icons } from './icons';
 import { withMaterialIconControls, iconColors } from './gutemberg';
 
-
+/** Set icon and color picker options to Gutemberg Block Editor. */
 addFilter(
     'editor.BlockEdit',
     'my-plugin/with-inspector-controls',
     withMaterialIconControls
 );
 
+/** 
+ * Generate color options for {ColorPalette} control.
+ */
 const createColorPalette = function() {
     let colors = [];
     for (let c in iconColors) {
@@ -53,6 +56,9 @@ const createColorPalette = function() {
     return colors;
 }
 
+/** 
+ * Generate {Button}s to be used in a {PanelBody} to pick an icon.
+ */
 const createIconButtons = function({ attributes, setAttributes }) {
 	let buttons = [];
 	for (let ni in icons) {
@@ -67,14 +73,12 @@ const createIconButtons = function({ attributes, setAttributes }) {
   * The edit function describes the structure of your block in the context of the
   * editor. This represents what the editor will render when the block is used.
   *
-  * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#edit
+  * Generate custom block that enable to setup a footernote with its icon and text 
+  * including {InspectorControls}.
   *
   * @return {WPElement} Element to render.
   */
  export default function Edit({ attributes, setAttributes }) {
-	console.log('EDIT');
-	console.log(attributes);
- 
 	 return (
 		 <div {...useBlockProps()}>
 			 <div className="wp-material-footnote">
