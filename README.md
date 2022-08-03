@@ -3,7 +3,8 @@
 WordPress Gutember block plugin that enables to complete your texts with beautiful 
 footnotes based on [Material Design icons](https://materialdesignicons.com).
 
-Please check [WP plugin description](readme.txt) from more details.
+Please check [WP plugin directory page](https://wordpress.org/plugins/icon-footnote/) 
+or [WP plugin description file](readme.txt) from more details.
 
 Developed by [OpenDev.Consulting](https://opendev.consulting).
 
