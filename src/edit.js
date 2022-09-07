@@ -118,29 +118,29 @@ function MyFontSize({ attributes, setAttributes }) {
 			disableCustomFontSizes
 			fontSizes={[
 				{
-				name: 'Insurence',
-				size: 6,
-				slug: 'small'
-				},
-				{
-					name: 'Very small',
+					name: __('Insurence'),
 					size: 8,
-					slug: 'small'
-				},
-				{
-				name: 'Small',
-				size: 10,
-				slug: 'normal'
-				},
-				{
-					name: 'Normal',
+					slug: 'insurence'
+				},{
+					name: __('Tiny'),
+					size: 10,
+					slug: 'tiny'
+				},{
+					name: __('Small'),
 					size: 12,
+					slug: 'small'
+				},{
+					name: __('Normal'),
+					size: 14,
 					slug: 'normal'
-				},
-				{
-				name: 'Big',
-				size: 24,
-				slug: 'big'
+				},{
+					name: __('Regural'),
+					size: 18,
+					slug: 'regural'
+				},{
+					name: __('Big'),
+					size: 24,
+					slug: 'big'
 				}
 			]}
 			onChange={(val) => { setAttributes({ textSize: 'font-size-' + val + 'px'})} }
