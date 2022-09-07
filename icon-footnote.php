@@ -4,7 +4,7 @@
  * Description:       Gutenberg block to add beautiful footnotes using material icons.
  * Requires at least: 5.9
  * Requires PHP:      7.0
- * Version:           0.1.2
+ * Version:           0.1.3
  * Author:            Krzysztof Stopa, OpenDev.Consulting
  * Author URI:        https://opendev.consulting
  * License:           GPL-2.0-or-later

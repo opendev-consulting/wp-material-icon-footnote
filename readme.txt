@@ -1,6 +1,6 @@
 === Icon Footnote ===
 Contributors:      Krzysztof Stopa OpenDev.Consulting
-Tags:              block
+Tags:              block, bibliography, footnotes, formatting
 Tested up to:      6.0
 Stable tag:        0.1.2
 License:           GPL-2.0-or-later
@@ -41,13 +41,23 @@ I'm working on it. The final goal is to enable to work with any material icon.
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+1. Add beautiful footnotes on rich text blocks to your texts.
+
+2. First pick the icon color (pressing the drop icon) and then select your favourite icon as footnote mark.
+
+3. Set icon size and formatting (subscript, superscript).
+
+4. To write your footnote add a new ¨Footnote icon¨ block.
+
+5. In the same way pick your favourite color and icon and write down your footnote.
+
+6. Ready! Now you posts can have awaseom footnotes.
 
 == Changelog ==
+
+= 0.1.3 =
+
+* Customize footnote text size.
 
 = 0.1.2 =
 

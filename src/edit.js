@@ -34,6 +34,11 @@ import './editor.scss';
 import { MaterialIcon, icons } from './icons';
 import { withMaterialIconControls, iconColors } from './gutemberg';
 
+import { DropdownMenu, MenuGroup, MenuItem, FontSizePicker } from '@wordpress/components';
+import { more, arrowUp, arrowDown, trash } from '@wordpress/icons';
+import { Toolbar, ToolbarButton } from '@wordpress/components';
+import { edit } from '@wordpress/icons';
+
 /** Set icon and color picker options to Gutemberg Block Editor. */
 addFilter(
     'editor.BlockEdit',
@@ -63,11 +68,87 @@ const createIconButtons = function({ attributes, setAttributes }) {
 	let buttons = [];
 	for (let ni in icons) {
 		buttons.push(
-			<Button icon={ MaterialIcon(icons[ni], attributes.color)}  iconSize={ 32 } onClick={(val) => setAttributes({ icon: icons[ni] })} />
+			<Button icon={ MaterialIcon(icons[ni], attributes.color, 24)}  iconSize={ 32 } onClick={(val) => setAttributes({ icon: icons[ni] })} />
 		);
 	}
 	return buttons;
 }
+
+const MyDropdownMenu = () => (
+    <DropdownMenu icon={ more } label="Style">
+        { ( { onClose } ) => (
+            <Fragment>
+                <MenuGroup>
+                    <MenuItem icon='small' onClick={ onClose }>
+                        Move Up
+                    </MenuItem>
+                    <MenuItem icon={ arrowDown } onClick={ onClose }>
+                        Move Down
+                    </MenuItem>
+                </MenuGroup>
+                <MenuGroup>
+                    <MenuItem icon={ trash } onClick={ onClose }>
+                        Remove
+                    </MenuItem>
+                </MenuGroup>
+            </Fragment>
+        ) }
+    </DropdownMenu>
+);
+
+function MyToolbar() {
+    return (
+        <Toolbar label="Options">
+            <ToolbarButton
+                label="Small"
+                onClick={ () => alert( 'Small' ) }
+            />
+			<ToolbarButton
+                icon={ edit }
+                label="Normal"
+                onClick={ () => alert( 'Normal' ) }
+            />
+        </Toolbar>
+    );
+}
+
+function MyFontSize({ attributes, setAttributes }) {
+	return (
+		<FontSizePicker
+			disableCustomFontSizes
+			fontSizes={[
+				{
+				name: 'Insurence',
+				size: 6,
+				slug: 'small'
+				},
+				{
+					name: 'Very small',
+					size: 8,
+					slug: 'small'
+				},
+				{
+				name: 'Small',
+				size: 10,
+				slug: 'normal'
+				},
+				{
+					name: 'Normal',
+					size: 12,
+					slug: 'normal'
+				},
+				{
+				name: 'Big',
+				size: 24,
+				slug: 'big'
+				}
+			]}
+			onChange={(val) => { setAttributes({ textSize: 'font-size-' + val + 'px'})} }
+			value={attributes.textSize.split('-')[2].replace('px', '')}
+			/>
+	)
+}
+
 
  /**
   * The edit function describes the structure of your block in the context of the
@@ -84,6 +165,9 @@ const createIconButtons = function({ attributes, setAttributes }) {
 			 <div className="wp-material-footnote">
 				 <Fragment>
 					 <InspectorControls>
+					    <PanelBody title="Style" initialOpen={true}>
+							{ MyFontSize({attributes, setAttributes}) }
+						</PanelBody>
 					 	<PanelBody title="Color" initialOpen={true}>
 							 <ColorPicker
 								 color={attributes.color}
@@ -106,14 +190,16 @@ const createIconButtons = function({ attributes, setAttributes }) {
 					 <div className="wp-material-footnote-icon">
 						 {MaterialIcon(attributes.icon, attributes.color)}
 					 </div>
-					 <div className="wp-material-footnote-text">
-						<RichText
-							className="callout-title"
-							placeholder={__("Write a foot note")}
-							value={attributes.note}
-							onChange={(val) => setAttributes({ note: val })}
-						/>
-					 </div>
+					 <span class={attributes.textSize}>
+						<div className="wp-material-footnote-text">
+							<RichText
+								className="callout-title"
+								placeholder={__("Write a foot note")}
+								value={attributes.note}
+								onChange={(val) => setAttributes({ note: val })}
+							/>
+						</div>
+					 </span>
 				 </Fragment>
 			 </div>
  

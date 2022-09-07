@@ -90,11 +90,10 @@ export const withMaterialIconControls = createHigherOrderComponent( ( BlockEdit 
 								icon={ color } label={__('Pick icon color')} controls={ colorControls } 
 							/>;
                             <DropdownMenu
-                                icon = { MaterialIcon(logo, iconColor) }
+                                icon = { MaterialIcon(logo, iconColor, 24) }
                                 label = {__("Add icon")}
                                 controls = {iconControls}
                             />;
-							
 						</ToolbarGroup>
 					</BlockControls>
 				</Fragment>

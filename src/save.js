@@ -19,9 +19,11 @@ return (
 						<path fill={attributes.color} d={attributes.icon} />
 					</svg>
 				</div>
-				<div class="wp-material-footnote-text">
-					{ attributes.note }
-				</div>
+				<span class={attributes.textSize}>
+					<div class="wp-material-footnote-text">
+						{ attributes.note }
+					</div>
+				</span>
 			</div>
 		</div>
 	);
