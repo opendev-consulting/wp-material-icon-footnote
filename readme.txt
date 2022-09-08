@@ -2,7 +2,7 @@
 Contributors:      Krzysztof Stopa OpenDev.Consulting
 Tags:              block, bibliography, footnotes, formatting
 Tested up to:      6.0
-Stable tag:        0.1.2
+Stable tag:        0.1.3
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -17,7 +17,8 @@ Developed by [OpenDev.Consulting](https://opendev.consulting).
 Features:
 
  * More than 20 icons available.
- * Customizable color.
+ * Customizable icon color.
+ * Customizable font size.
 
 == Installation ==
 

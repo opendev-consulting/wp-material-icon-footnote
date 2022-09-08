@@ -32,7 +32,7 @@
 	align-items: center;
 }
 
-$font_sizes: 6px, 8px, 10px, 12px, 24px;
+$font_sizes: 6px, 8px, 10px, 12px, 14px, 24px;
 
 @each $size in $font_sizes {
   .font-size-#{$size} {
